@@ -1,0 +1,71 @@
+﻿<Window x:Class="FlowMapApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlowMap"
+        xmlns:oxy="http://oxyplot.org/wpf"
+        mc:Ignorable="d"
+        Title="Flow Map" Height="500" Width="580" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="4,40,8,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="4">
+                <Label Width="60" VerticalAlignment="Center" Padding="0">DENL</Label>
+                <TextBox Width="60" Text="{Binding Path=DENL}"/>
+                <Label Padding="0" Margin="8,0,0,0">kg/m</Label>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="4">
+                <Label Width="60" VerticalAlignment="Center" Padding="0">DENG</Label>
+                <TextBox Width="60" Text="{Binding Path=DENG}"/>
+                <Label Padding="0" Margin="8,0,0,0">kg/m</Label>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Margin="4">
+                <Label Width="60" VerticalAlignment="Center" Padding="0">VISL</Label>
+                <TextBox Width="60" Text="{Binding Path=VISL}"/>
+                <Label Padding="0" Margin="8,0,0,0">cP</Label>
+            </StackPanel>
+
+            <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" Margin="4">
+                <Label Width="60" VerticalAlignment="Center" Padding="0">VISG</Label>
+                <TextBox Width="60" Text="{Binding Path=VISG}"/>
+                <Label Padding="0" Margin="8,0,0,0">cP</Label>
+            </StackPanel>
+
+            <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Horizontal" Margin="4">
+                <Label Width="60" VerticalAlignment="Center" Padding="0">DIA</Label>
+                <TextBox Width="60" Text="{Binding Path=DIA}"/>
+                <Label Padding="0" Margin="8,0,0,0">m</Label>
+            </StackPanel>
+
+            <StackPanel Grid.Row="5" Grid.Column="0" Orientation="Horizontal" Margin="4">
+                <Label Width="60" VerticalAlignment="Center" Padding="0">ANGLE</Label>
+                <TextBox Width="60" Text="{Binding Path=ANGLE}"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="6" Grid.Column="0" Margin="0,8,0,0">
+                 <Button Click="Button_Click" Margin="4">
+                    <TextBlock Margin="2" Text="Duckler Map"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+        
+        <oxy:PlotView Margin="8" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Model="{Binding plotModel}"/>
+    </Grid>
+</Window>
